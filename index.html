@@ -1,0 +1,142 @@
+<html>
+<head>
+ <h1>Sign In and Sign Up Flow using Google Firebase Authentication</h1>
+</head>
+<body class="main">
+
+  <!-- NAVBAR -->
+  <nav class="sub-main">
+    <div class="nav-bar">
+     
+      <ul id="nav-mobile" class="system">
+          <li class="logged-in">
+            <a href="#" class="Info" data-target="modal-account">Account</a>
+          </li>
+          <li class="logged-in">
+            <a href="#" class="Info" id="logout">Logout</a>
+          </li>
+          <li class="logged-in">
+            <a href="#" class="Info" data-target="modal-create">Create Guide</a>
+          </li>
+          <li class="logged-out">
+            <a href="#" class="Info" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out">
+            <a href="#" class="Info" data-target="modal-signup">Sign up</a>
+          </li>
+        </span>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SIGN UP MODAL -->
+  <div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4><br />
+      <form id="signup-form">
+        <div class="input-field">
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Choose password</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="signup-bio" required />
+          <label for="signup-bio">One Line Bio</label>
+        </div>
+        
+        <button class="Info">Sign up</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Your password</label>
+        </div>
+        <button class="Info">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ACCOUNT MODAL -->
+  <div id="modal-account" class="modal">
+    <div class="modal-content center-align">
+      <h4>Account details</h4><br />
+      <div class="account-details"></div>
+    </div>
+  </div>
+
+  <!-- CREATE GUIDE MODAL -->
+  <div id="modal-create" class="modal">
+    <div class="modal-content">
+      <h4>Create Guide</h4><br />
+      <form id="create-form">
+        <div class="input-field">
+          <input type="text" id="title" required>
+          <label for="title">Guide Title</label>
+        </div>
+        <div class="input-field">
+          <textarea id="content"></textarea>
+          <label for="content">Guide Content</label>
+        </div>
+        <button class="Info">Create</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- GUIDE LIST -->
+  <div class="container" style="margin-top: 40px;">
+    <ul class="collapsible z-depth-0 guides" style="border: none;">
+
+    </ul>
+  </div>
+  
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDlDUJhsP0_uh-YpaRfTOhWZsyY_hLukTw",
+      authDomain: "net-ninja-sandbox.firebaseapp.com",
+      databaseURL: "https://net-ninja-sandbox.firebaseio.com",
+      projectId: "net-ninja-sandbox"
+    };
+
+
+     var config = {
+        apiKey: "AIzaSyB-zE-hX6J3ofC89jJsZpVwq6o6cJmcVtY",
+        authDomain: "test-31e9d.firebaseapp.com",
+        projectId: "test-31e9d",
+        storageBucket: "test-31e9d.appspot.com",
+        messagingSenderId: "304258421060",
+        appId: "1:304258421060:web:d42b7232337484ff258711",
+        measurementId: "G-39VRXC4L7G"
+      };
+    firebase.initializeApp(config);
+    
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // update firestore settings
+    db.settings({ timestampsInSnapshots: true });
+  </script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/index.js"></script>
+</body>
+</html>
